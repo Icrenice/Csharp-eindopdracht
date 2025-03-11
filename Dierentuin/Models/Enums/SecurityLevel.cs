@@ -1,6 +1,9 @@
-namespace Dierentuin.Models.Enums;
-
-public class SecurityLevel
+namespace Dierentuin.Models.Enums
 {
-    
+    public enum SecurityLevel
+    {
+        Low,
+        Medium,
+        High
+    }
 }
