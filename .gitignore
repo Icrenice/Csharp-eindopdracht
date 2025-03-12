@@ -1,0 +1,10 @@
+# Visual Studio cache files
+.vs/
+
+# Build artifacts
+bin/
+obj/
+
+# Other typical ignores...
+*.user
+*.suo
