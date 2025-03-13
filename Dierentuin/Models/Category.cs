@@ -1,3 +1,6 @@
+using System.ComponentModel.DataAnnotations;
+using Dierentuin.Models.Enums; //
+
 namespace Dierentuin.Models;
 
 public class Category
@@ -9,5 +12,4 @@ public class Category
 
     // Alle dieren in deze categorie
     public List<Animal> Animals { get; set; } = new();
-}
 }

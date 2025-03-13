@@ -1,4 +1,5 @@
-namespace Dierentuin.Models.Enums;
+using System.ComponentModel.DataAnnotations;
+using Dierentuin.Models.Enums;
 
 namespace Dierentuin.Models
 {

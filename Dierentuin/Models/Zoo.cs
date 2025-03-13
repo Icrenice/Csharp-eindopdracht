@@ -1,116 +1,125 @@
-namespace Dierentuin.Models;
+using System.ComponentModel.DataAnnotations;
+using Dierentuin.Models.Enums;
 
-public class Zoo
+namespace Dierentuin.Models
 {
-    // Primaire sleutel
-    public int Id { get; set; }
-
-    // Naam van de dierentuin
-    [Required]
-    public string Naam { get; set; } = "Mijn Dierentuin";
-
-    // Alle verblijven in deze dierentuin
-    public List<Enclosure> Verblijven { get; set; } = new();
-
-    // Lijst met alledieren
-    public List<Animal> AlleDieren { get; set; } = new();
-
-
-    //Zonsopgang roep de Zonsopgang-methode aan voor elk verblijf dieren bepalen of ze opstaan  of slapen
-    public void Zonsopgang()
+    public class Zoo
     {
-        foreach (var verblijf in Verblijven)
+        // Primary Key
+        public int Id { get; set; }
+
+        // Zoo name
+        [Required]
+        public string Name { get; set; } = "My Zoo";
+
+        // All enclosures in this zoo
+        public List<Enclosure> Enclosures { get; set; } = new();
+
+        // All animals in the zoo (regardless of enclosure)
+        public List<Animal> AllAnimals { get; set; } = new();
+
+        /// <summary>
+        /// Sunrise: calls the Sunrise method in each enclosure
+        /// (so animals wake up or go to sleep accordingly)
+        /// </summary>
+        public void Sunrise()
         {
-            verblijf.Zonsopgang();
-        }
-    }
-
-    // Zonsondergang roep de Zonsondergang-methode aan voor elk verblijf dieren bepalen of  ze opstaan of slapen
-   
-    public void Zonsondergang()
-    {
-        foreach (var verblijf in Verblijven)
-        {
-            verblijf.Zonsondergang();
-        }
-    }
-
-    
-    // Voedertijd: Roep de Voedertijd-methode aan voor elk verblijf 
-    public void Voedertijd()
-    {
-        foreach (var verblijf in Verblijven)
-        {
-            verblijf.Voedertijd();
-        }
-    }
-
-
-    // CheckConstraints: controleer voor elk verblijf
-    // of aan de eisen is voldaan (ruimte, beveiliging, etc.)
-    // Keer terug met een lijst van meldingen.
-  
-    // <returns>Lijst met foutmeldingen</returns>
-    public List<string> CheckConstraints()
-    {
-        var fouten = new List<string>();
-
-        foreach (var verblijf in Verblijven)
-        {
-            var verblijfFouten = verblijf.CheckConstraints();
-            if (verblijfFouten.Any())
+            foreach (var enclosure in Enclosures)
             {
-                // Je kunt prefixen met de naam van het verblijf
-                foreach (var fout in verblijfFouten)
+                enclosure.Sunrise();
+            }
+        }
+
+        /// <summary>
+        /// Sunset: calls the Sunset method in each enclosure
+        /// (so animals wake up or go to sleep accordingly)
+        /// </summary>
+        public void Sunset()
+        {
+            foreach (var enclosure in Enclosures)
+            {
+                enclosure.Sunset();
+            }
+        }
+
+        /// <summary>
+        /// FeedingTime: calls the FeedingTime method in each enclosure.
+        /// </summary>
+        public void FeedingTime()
+        {
+            foreach (var enclosure in Enclosures)
+            {
+                enclosure.FeedingTime();
+            }
+        }
+
+        /// <summary>
+        /// Checks constraints in each enclosure (space, security, etc.).
+        /// Returns a list of error messages.
+        /// </summary>
+        public List<string> CheckConstraints()
+        {
+            var errors = new List<string>();
+
+            foreach (var enclosure in Enclosures)
+            {
+                var enclosureErrors = enclosure.CheckConstraints();
+                if (enclosureErrors.Any())
                 {
-                    fouten.Add($"[{verblijf.Name}] {fout}");
+                    // Prefix each error with the enclosure name
+                    foreach (var error in enclosureErrors)
+                    {
+                        errors.Add($"[{enclosure.Name}] {error}");
+                    }
+                }
+            }
+
+            return errors;
+        }
+
+        /// <summary>
+        /// AutoAssign: automatically assigns animals to enclosures.
+        /// removeExisting = true => remove all enclosures + existing assignments,
+        /// then create a new assignment.
+        /// removeExisting = false => keep existing enclosures and only assign unassigned animals.
+        /// </summary>
+        public void AutoAssign(bool removeExisting = false)
+        {
+            if (removeExisting)
+            {
+                // Extreme example: remove all enclosures
+                Enclosures.Clear();
+
+                // Optionally add new enclosures here:
+                Enclosures.Add(new Enclosure
+                {
+                    Name = "New Enclosure 1",
+                    Size = 100,
+                    SecurityLevel = SecurityLevel.Medium
+                });
+                Enclosures.Add(new Enclosure
+                {
+                    Name = "New Enclosure 2",
+                    Size = 200,
+                    SecurityLevel = SecurityLevel.High
+                });
+            }
+
+            // Find all animals without an assigned enclosure
+            var unassignedAnimals = AllAnimals
+                .Where(a => a.EnclosureId == null)
+                .ToList();
+
+            // For simplicity, just place them in the first enclosure that exists
+            foreach (var animal in unassignedAnimals)
+            {
+                var suitableEnclosure = Enclosures.FirstOrDefault();
+                if (suitableEnclosure != null)
+                {
+                    suitableEnclosure.Animals.Add(animal);
+                    animal.EnclosureId = suitableEnclosure.Id;
                 }
             }
         }
-
-        return fouten;
     }
-
-    // AutoAssign: automatisch dieren indelen in verblijven.
-    // removeExisting = true => verwijder alle verblijven + indeling
-    // en maak een nieuwe indeling.
-    // removeExisting = false => gebruik bestaande verblijven en vul niet toegewezen dieren aan.
-    public void AutoAssign(bool removeExisting = false)
-    {
-        if (removeExisting)
-        {
-            // Extreem voorbeeld: verwijder alle verblijven
-            Verblijven.Clear();
-            // Maak hier eventueel nieuwe verblijven aan:
-            Verblijven.Add(new Enclosure
-            {
-                Name = "Nieuw Verblijf 1",
-                Size = 100,
-                SecurityLevel = SecurityLevel.Medium
-            });
-            Verblijven.Add(new Enclosure
-            {
-                Name = "Nieuw Verblijf 2",
-                Size = 200,
-                SecurityLevel = SecurityLevel.High
-            });
-        }
-
-       
-        var unassignedAnimals = AlleDieren.Where(a => a.EnclosureId == null).ToList();
-
-        foreach (var dier in unassignedAnimals)
-        {
-
-            var suitableEnclosure = Verblijven.FirstOrDefault();
-            if (suitableEnclosure != null)
-            {
-                suitableEnclosure.Animals.Add(dier);
-                dier.EnclosureId = suitableEnclosure.Id;
-            }
-        }
-        
-
-    }
-}
 }
