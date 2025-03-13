@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zyQTzQVJscI=",
+  "dgSpecHash": "CFCfjBb4gxZKDfp7/xRlDkHrn22Aj6kSGyngKSCrVS2ocYS21z8L/HIz0QaHT0IgXywjtPfDA1PmWVIbMNUSNw==",
   "success": true,
   "projectFilePath": "/Users/debo/RiderProjects/Csharp-eindopdracht/Dierentuin/Dierentuin.csproj",
   "expectedPackageFiles": [
@@ -78,7 +78,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Dierentuin depends on Microsoft.EntityFrameworkCore (>= 7.0.6) but Microsoft.EntityFrameworkCore 7.0.6 was not found. Microsoft.EntityFrameworkCore 7.0.7 was resolved instead.",
+      "message": "Dierentuin depends on Microsoft.EntityFrameworkCore (>= 7.0.6) but Microsoft.EntityFrameworkCore 7.0.6 was not found. An approximate best match of Microsoft.EntityFrameworkCore 7.0.7 was resolved.",
       "libraryId": "Microsoft.EntityFrameworkCore",
       "targetGraphs": [
         "net7.0"
@@ -88,7 +88,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Dierentuin depends on Microsoft.EntityFrameworkCore.Design (>= 7.0.6) but Microsoft.EntityFrameworkCore.Design 7.0.6 was not found. Microsoft.EntityFrameworkCore.Design 7.0.7 was resolved instead.",
+      "message": "Dierentuin depends on Microsoft.EntityFrameworkCore.Design (>= 7.0.6) but Microsoft.EntityFrameworkCore.Design 7.0.6 was not found. An approximate best match of Microsoft.EntityFrameworkCore.Design 7.0.7 was resolved.",
       "libraryId": "Microsoft.EntityFrameworkCore.Design",
       "targetGraphs": [
         "net7.0"
@@ -98,7 +98,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Dierentuin depends on Microsoft.EntityFrameworkCore.SqlServer (>= 7.0.6) but Microsoft.EntityFrameworkCore.SqlServer 7.0.6 was not found. Microsoft.EntityFrameworkCore.SqlServer 7.0.7 was resolved instead.",
+      "message": "Dierentuin depends on Microsoft.EntityFrameworkCore.SqlServer (>= 7.0.6) but Microsoft.EntityFrameworkCore.SqlServer 7.0.6 was not found. An approximate best match of Microsoft.EntityFrameworkCore.SqlServer 7.0.7 was resolved.",
       "libraryId": "Microsoft.EntityFrameworkCore.SqlServer",
       "targetGraphs": [
         "net7.0"
@@ -108,7 +108,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Dierentuin depends on Microsoft.EntityFrameworkCore.Tools (>= 7.0.6) but Microsoft.EntityFrameworkCore.Tools 7.0.6 was not found. Microsoft.EntityFrameworkCore.Tools 7.0.7 was resolved instead.",
+      "message": "Dierentuin depends on Microsoft.EntityFrameworkCore.Tools (>= 7.0.6) but Microsoft.EntityFrameworkCore.Tools 7.0.6 was not found. An approximate best match of Microsoft.EntityFrameworkCore.Tools 7.0.7 was resolved.",
       "libraryId": "Microsoft.EntityFrameworkCore.Tools",
       "targetGraphs": [
         "net7.0"
