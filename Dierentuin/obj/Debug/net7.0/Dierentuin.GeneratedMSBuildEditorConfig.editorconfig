@@ -9,37 +9,37 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Dierentuin
 build_property.RootNamespace = Dierentuin
-build_property.ProjectDir = C:\Users\DeoAN\Documents\csharp\Dierentuin\
+build_property.ProjectDir = C:\Users\ericm\Source\Repos\Icrenice\Csharp-eindopdracht\Dierentuin\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\DeoAN\Documents\csharp\Dierentuin
+build_property.MSBuildProjectDirectory = C:\Users\ericm\Source\Repos\Icrenice\Csharp-eindopdracht\Dierentuin
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/DeoAN/Documents/csharp/Dierentuin/Views/Home/Index.cshtml]
+[C:/Users/ericm/Source/Repos/Icrenice/Csharp-eindopdracht/Dierentuin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DeoAN/Documents/csharp/Dierentuin/Views/Home/Privacy.cshtml]
+[C:/Users/ericm/Source/Repos/Icrenice/Csharp-eindopdracht/Dierentuin/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DeoAN/Documents/csharp/Dierentuin/Views/Shared/Error.cshtml]
+[C:/Users/ericm/Source/Repos/Icrenice/Csharp-eindopdracht/Dierentuin/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DeoAN/Documents/csharp/Dierentuin/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/ericm/Source/Repos/Icrenice/Csharp-eindopdracht/Dierentuin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DeoAN/Documents/csharp/Dierentuin/Views/_ViewImports.cshtml]
+[C:/Users/ericm/Source/Repos/Icrenice/Csharp-eindopdracht/Dierentuin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DeoAN/Documents/csharp/Dierentuin/Views/_ViewStart.cshtml]
+[C:/Users/ericm/Source/Repos/Icrenice/Csharp-eindopdracht/Dierentuin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DeoAN/Documents/csharp/Dierentuin/Views/Shared/_Layout.cshtml]
+[C:/Users/ericm/Source/Repos/Icrenice/Csharp-eindopdracht/Dierentuin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-b99ok4z0wl
