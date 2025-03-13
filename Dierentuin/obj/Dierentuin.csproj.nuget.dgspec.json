@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/debo/RiderProjects/Csharp-eindopdracht/Dierentuin/Dierentuin.csproj": {}
+    "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj": {}
   },
   "projects": {
-    "/Users/debo/RiderProjects/Csharp-eindopdracht/Dierentuin/Dierentuin.csproj": {
+    "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/debo/RiderProjects/Csharp-eindopdracht/Dierentuin/Dierentuin.csproj",
+        "projectUniqueName": "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj",
         "projectName": "Dierentuin",
-        "projectPath": "/Users/debo/RiderProjects/Csharp-eindopdracht/Dierentuin/Dierentuin.csproj",
-        "packagesPath": "/Users/debo/.nuget/packages/",
-        "outputPath": "/Users/debo/RiderProjects/Csharp-eindopdracht/Dierentuin/obj/",
+        "projectPath": "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj",
+        "packagesPath": "C:\\Users\\DeoAN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/debo/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\DeoAN\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -32,7 +32,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net7.0": {
@@ -71,6 +77,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -79,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
