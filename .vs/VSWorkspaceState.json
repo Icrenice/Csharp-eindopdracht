@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Dierentuin"
+    "\\Dierentuin",
+    "\\Dierentuin\\Models"
   ],
-  "SelectedNode": "\\.gitignore",
+  "SelectedNode": "\\Dierentuin\\Models\\Zoo.cs",
   "PreviewInSolutionExplorer": false
 }
