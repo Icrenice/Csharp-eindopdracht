@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\Dierentuin",
-    "\\Dierentuin\\Models"
+    "\\Dierentuin\\Controllers",
+    "\\Dierentuin\\Controllers\\MVC",
+    "\\Dierentuin\\Models",
+    "\\Dierentuin\\Properties",
+    "\\Dierentuin\\Views"
   ],
-  "SelectedNode": "\\Dierentuin\\Models\\Zoo.cs",
+  "SelectedNode": "\\Dierentuin\\Controllers\\MVC\\CategoryController.cs",
   "PreviewInSolutionExplorer": false
 }
