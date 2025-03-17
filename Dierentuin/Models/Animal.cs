@@ -32,7 +32,7 @@ namespace Dierentuin.Models
         public double SpaceRequirement { get; set; }
         public SecurityLevel SecurityRequirement { get; set; }
 
-        // Handig om te tracken of dier wakker is
+        // Handig om te tracken of een dier wakker is
         public bool IsAwake { get; set; } = true;
     }
 }
