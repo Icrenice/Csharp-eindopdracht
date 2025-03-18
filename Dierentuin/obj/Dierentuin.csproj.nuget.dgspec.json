@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ericm\\source\\repos\\Icrenice\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj": {}
+    "/Users/]Deo/RiderProjects/Csharp-eindopdracht/Dierentuin/Dierentuin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ericm\\source\\repos\\Icrenice\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj": {
+    "/Users/]Deo/RiderProjects/Csharp-eindopdracht/Dierentuin/Dierentuin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ericm\\source\\repos\\Icrenice\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj",
+        "projectUniqueName": "/Users/]Deo/RiderProjects/Csharp-eindopdracht/Dierentuin/Dierentuin.csproj",
         "projectName": "Dierentuin",
-        "projectPath": "C:\\Users\\ericm\\source\\repos\\Icrenice\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj",
-        "packagesPath": "C:\\Users\\ericm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ericm\\source\\repos\\Icrenice\\Csharp-eindopdracht\\Dierentuin\\obj\\",
+        "projectPath": "/Users/]Deo/RiderProjects/Csharp-eindopdracht/Dierentuin/Dierentuin.csproj",
+        "packagesPath": "/Users/]Deo/.nuget/packages/",
+        "outputPath": "/Users/]Deo/RiderProjects/Csharp-eindopdracht/Dierentuin/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ericm\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/]Deo/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -85,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/]Deo/.dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }
