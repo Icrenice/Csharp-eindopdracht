@@ -3496,19 +3496,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DeoAN\\.nuget\\packages\\": {}
+    "/Users/]Deo/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj",
+      "projectUniqueName": "/Users/]Deo/RiderProjects/Csharp-eindopdracht/Dierentuin/Dierentuin.csproj",
       "projectName": "Dierentuin",
-      "projectPath": "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj",
-      "packagesPath": "C:\\Users\\DeoAN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\obj\\",
+      "projectPath": "/Users/]Deo/RiderProjects/Csharp-eindopdracht/Dierentuin/Dierentuin.csproj",
+      "packagesPath": "/Users/]Deo/.nuget/packages/",
+      "outputPath": "/Users/]Deo/RiderProjects/Csharp-eindopdracht/Dierentuin/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DeoAN\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/]Deo/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -3573,7 +3573,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\DeoAN\\.dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/]Deo/.dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
       }
     }
   },
