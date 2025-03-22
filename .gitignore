@@ -8,3 +8,10 @@ obj/
 # Other typical ignores...
 *.user
 *.suo
+
+# Ignore NuGet packages folder
+packages/
+
+# Rider & VS Code folders
+.idea/
+.vscode/

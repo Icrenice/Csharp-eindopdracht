@@ -14,9 +14,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.6" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Controllers\API\" />
-  </ItemGroup>
-
 </Project>
