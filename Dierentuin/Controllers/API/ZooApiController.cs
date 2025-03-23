@@ -108,7 +108,7 @@ namespace Dierentuin.Controllers.API
                         case ActivityPattern.Nocturnal:
                             animal.IsAwake = false;
                             break;
-                        case ActivityPattern.Catemeral:
+                        case ActivityPattern.Cathemeral:
                             animal.IsAwake = true;
                             break;
                     }
@@ -142,7 +142,7 @@ namespace Dierentuin.Controllers.API
                         case ActivityPattern.Nocturnal:
                             animal.IsAwake = true;
                             break;
-                        case ActivityPattern.Catemeral:
+                        case ActivityPattern.Cathemeral:
                             animal.IsAwake = false;
                             break;
                     }
