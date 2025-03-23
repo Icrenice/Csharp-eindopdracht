@@ -1,0 +1,69 @@
+@using Azure.Core
+@model IEnumerable<Dierentuin.Models.Animal>
+
+    @{
+    ViewData["Title"] = "Animals";
+}
+
+<h1>Animals</h1>
+
+    <!-- Search/Filter -->
+    <form method="get">
+    <input type="text" name="search" placeholder="Search animals..." value="@Request.Query["search"]" />
+    <input type="submit" value="Filter" />
+    </form>
+
+    <p>
+    <a asp-action="Create">Create New Animal</a>
+    </p>
+
+    <!-- Eventuele resultaten van acties -->
+    @if (TempData["AnimalActionResult"] != null)
+{
+    <div style="color: green">
+               @Html.Raw(TempData["AnimalActionResult"])
+               </div>
+}
+@if (TempData["AnimalConstraints"] != null)
+{
+    <div style="color: red">
+               @Html.Raw(TempData["AnimalConstraints"])
+               </div>
+}
+
+<table class="table">
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>Species</th>
+    <th>Category</th>
+    <th>Enclosure</th>
+    <th>IsAwake</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var animal in Model)
+{
+    <tr>
+        <td>@animal.Name</td>
+        <td>@animal.Species</td>
+        <td>@animal.Category?.Name</td>
+        <td>@animal.Enclosure?.Name</td>
+        <td>@animal.IsAwake</td>
+        <td>
+        <!-- CRUD -->
+        <a asp-action="Details" asp-route-id="@animal.Id">Details</a> |
+        <a asp-action="Edit" asp-route-id="@animal.Id">Edit</a> |
+        <a asp-action="Delete" asp-route-id="@animal.Id">Delete</a>
+        <br />
+        <!-- Acties (Sunrise, Sunset, etc.) -->
+        <a asp-action="Sunrise" asp-route-id="@animal.Id">Sunrise</a> |
+        <a asp-action="Sunset" asp-route-id="@animal.Id">Sunset</a> |
+        <a asp-action="FeedingTime" asp-route-id="@animal.Id">Feeding</a> |
+        <a asp-action="CheckConstraints" asp-route-id="@animal.Id">Check</a>
+        </td>
+        </tr>
+}
+</tbody>
+    </table>
