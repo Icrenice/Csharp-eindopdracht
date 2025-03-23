@@ -1,0 +1,26 @@
+@model Dierentuin.Models.Animal
+
+@{
+    ViewData["Title"] = "Create Animal";
+}
+
+<h1>Create New Animal</h1>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Species"></label>
+        <input asp-for="Species" />
+    </div>
+
+    <!-- Je kunt hier ook dropdowns maken voor enums (Size, DietaryClass, etc.) -->
+
+    <input type="submit" value="Create" />
+</form>
+
+<p>
+    <a asp-action="Index">Back to List</a>
+</p>

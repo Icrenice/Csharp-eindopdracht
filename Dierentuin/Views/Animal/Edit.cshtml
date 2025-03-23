@@ -1,0 +1,28 @@
+@model Dierentuin.Models.Animal
+
+@{
+    ViewData["Title"] = "Edit Animal";
+}
+
+<h1>Edit Animal</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Species"></label>
+        <input asp-for="Species" />
+    </div>
+
+    <!-- idem voor de overige properties (Size, DietaryClass, ActivityPattern, etc.) -->
+
+    <input type="submit" value="Save" />
+</form>
+
+<p>
+    <a asp-action="Index">Back to List</a>
+</p>
