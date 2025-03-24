@@ -1,0 +1,23 @@
+@model Dierentuin.Models.Animal
+
+@{
+    ViewData["Title"] = "Animal Details";
+}
+
+<h1>Animal Details</h1>
+
+<div>
+    <h3>@Model.Name (@Model.Species)</h3>
+    <p>Category: @Model.Category?.Name</p>
+    <p>Enclosure: @Model.Enclosure?.Name</p>
+    <p>IsAwake: @Model.IsAwake</p>
+    <p>Size: @Model.Size</p>
+    <p>DietaryClass: @Model.DietaryClass</p>
+    <p>ActivityPattern: @Model.ActivityPattern</p>
+    <p>SecurityRequirement: @Model.SecurityRequirement</p>
+    <p>SpaceRequirement: @Model.SpaceRequirement</p>
+</div>
+
+<p>
+    <a asp-action="Index">Back to List</a>
+</p>

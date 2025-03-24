@@ -1,0 +1,16 @@
+﻿@model Dierentuin.Models.Animal
+
+@{
+    ViewData["Title"] = "Delete Animal";
+}
+
+<h1>Delete Animal</h1>
+
+<h4>@Model.Name (@Model.Species)</h4>
+<p>Are you sure you want to delete this?</p>
+
+<form asp-action="DeleteConfirmed" asp-route-id="@Model.Id" method="post">
+    <input type="submit" value="Delete" />
+    <a asp-action="Index">Cancel</a>
+</form>
+<h1>
