@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj": {}
+    "C:\\Users\\ericm\\Source\\Repos\\Icrenice\\Csharp-eindopdracht\\dierentuin\\Dierentuin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj": {
+    "C:\\Users\\ericm\\Source\\Repos\\Icrenice\\Csharp-eindopdracht\\dierentuin\\Dierentuin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj",
+        "projectUniqueName": "C:\\Users\\ericm\\Source\\Repos\\Icrenice\\Csharp-eindopdracht\\dierentuin\\Dierentuin.csproj",
         "projectName": "Dierentuin",
-        "projectPath": "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj",
-        "packagesPath": "C:\\Users\\DeoAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DeoAN\\RiderProjects\\Csharp-eindopdracht\\Dierentuin\\obj\\",
+        "projectPath": "C:\\Users\\ericm\\Source\\Repos\\Icrenice\\Csharp-eindopdracht\\dierentuin\\Dierentuin.csproj",
+        "packagesPath": "C:\\Users\\ericm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ericm\\Source\\Repos\\Icrenice\\Csharp-eindopdracht\\dierentuin\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\DeoAN\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ericm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,20 +50,20 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.6, )"
+              "version": "[7.0.20, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "target": "Package",
-              "version": "[7.0.6, )"
+              "version": "[7.0.20, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.6, )"
+              "version": "[7.0.20, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.6, )"
+              "version": "[7.0.20, )"
             }
           },
           "imports": [
@@ -79,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\DeoAN\\.dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

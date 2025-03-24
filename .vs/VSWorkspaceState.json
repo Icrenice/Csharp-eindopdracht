@@ -3,11 +3,13 @@
     "",
     "\\Dierentuin",
     "\\Dierentuin\\Controllers",
+    "\\Dierentuin\\Controllers\\API",
     "\\Dierentuin\\Controllers\\MVC",
-    "\\Dierentuin\\Models",
-    "\\Dierentuin\\Properties",
-    "\\Dierentuin\\Views"
+    "\\Dierentuin\\Views",
+    "\\Dierentuin\\Views\\Animal",
+    "\\Dierentuin\\Views\\Category",
+    "\\Dierentuin\\Views\\Enclosure"
   ],
-  "SelectedNode": "\\Dierentuin\\Controllers\\MVC\\CategoryController.cs",
+  "SelectedNode": "\\Dierentuin\\Dierentuin.csproj",
   "PreviewInSolutionExplorer": false
 }

@@ -16,7 +16,7 @@ namespace Dierentuin.Controllers.MVC
             _context = context;
         }
 
-        // Voorbeeld: GET /Enclosure/Index + filter
+        // GET: /Enclosure/Index
         [HttpGet]
         public async Task<IActionResult> Index(string? search)
         {
@@ -33,16 +33,95 @@ namespace Dierentuin.Controllers.MVC
             return View(enclosures);
         }
 
-        // ... (de CRUD-acties zoals Edit, Details, etc.)
+        // GET: /Enclosure/Details/5
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> Details(int id)
+        {
+            var enclosure = await _context.Enclosures
+                .Include(e => e.Animals)
+                .FirstOrDefaultAsync(e => e.Id == id);
+            if (enclosure == null) return NotFound();
 
-        // Sunrise op verblijf-niveau
+            return View(enclosure);
+        }
+
+        // GET: /Enclosure/Create
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: /Enclosure/Create
+        [HttpPost]
+        public async Task<IActionResult> Create(Enclosure enclosure)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Enclosures.Add(enclosure);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(enclosure);
+        }
+
+        // GET: /Enclosure/Edit/5
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var enclosure = await _context.Enclosures.FindAsync(id);
+            if (enclosure == null) return NotFound();
+            return View(enclosure);
+        }
+
+        // POST: /Enclosure/Edit/5
+        [HttpPost("{id:int}")]
+        public async Task<IActionResult> Edit(int id, Enclosure enclosure)
+        {
+            if (id != enclosure.Id) return BadRequest();
+
+            if (ModelState.IsValid)
+            {
+                _context.Update(enclosure);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(enclosure);
+        }
+
+        // GET: /Enclosure/Delete/5
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var enclosure = await _context.Enclosures.FindAsync(id);
+            if (enclosure == null) return NotFound();
+            return View(enclosure);
+        }
+
+        // POST: /Enclosure/DeleteConfirmed/5
+        [HttpPost("{id:int}"), ActionName("DeleteConfirmed")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var enclosure = await _context.Enclosures.FindAsync(id);
+            if (enclosure != null)
+            {
+                _context.Enclosures.Remove(enclosure);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        // -----------------------------
+        // Hieronder je extra acties: Sunrise, Sunset, FeedingTime, CheckConstraints
+        // -----------------------------
+
+        // GET: /Enclosure/Sunrise/5
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Sunrise(int id)
         {
             var enclosure = await _context.Enclosures
                 .Include(e => e.Animals)
                 .FirstOrDefaultAsync(e => e.Id == id);
-
             if (enclosure == null) return NotFound("Enclosure not found");
 
             foreach (var animal in enclosure.Animals)
@@ -65,14 +144,13 @@ namespace Dierentuin.Controllers.MVC
             return RedirectToAction(nameof(Index));
         }
 
-        // Sunset op verblijf-niveau
+        // GET: /Enclosure/Sunset/5
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Sunset(int id)
         {
             var enclosure = await _context.Enclosures
                 .Include(e => e.Animals)
                 .FirstOrDefaultAsync(e => e.Id == id);
-
             if (enclosure == null) return NotFound("Enclosure not found");
 
             foreach (var animal in enclosure.Animals)
@@ -95,21 +173,16 @@ namespace Dierentuin.Controllers.MVC
             return RedirectToAction(nameof(Index));
         }
 
-        // FeedingTime op verblijf-niveau
+        // GET: /Enclosure/FeedingTime/5
         [HttpGet("{id:int}")]
         public async Task<IActionResult> FeedingTime(int id)
         {
             var enclosure = await _context.Enclosures
                 .Include(e => e.Animals)
                 .FirstOrDefaultAsync(e => e.Id == id);
-
             if (enclosure == null) return NotFound("Enclosure not found");
 
-            var animalsOrdered = enclosure.Animals
-                .OrderBy(a => a.Size)
-                .ToList();
-
-            // Carnivores eten eerst kleinere dieren
+            var animalsOrdered = enclosure.Animals.OrderBy(a => a.Size).ToList();
             for (int i = 0; i < animalsOrdered.Count; i++)
             {
                 var predator = animalsOrdered[i];
@@ -118,7 +191,6 @@ namespace Dierentuin.Controllers.MVC
                     var preyList = animalsOrdered
                         .Where(a => a.Size < predator.Size)
                         .ToList();
-
                     foreach (var prey in preyList)
                     {
                         enclosure.Animals.Remove(prey);
@@ -126,19 +198,17 @@ namespace Dierentuin.Controllers.MVC
                     }
                 }
             }
-
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        // CheckConstraints op verblijf-niveau
+        // GET: /Enclosure/CheckConstraints/5
         [HttpGet("{id:int}")]
         public async Task<IActionResult> CheckConstraints(int id)
         {
             var enclosure = await _context.Enclosures
                 .Include(e => e.Animals)
                 .FirstOrDefaultAsync(e => e.Id == id);
-
             if (enclosure == null) return NotFound("Enclosure not found");
 
             var messages = new List<string>();
@@ -148,7 +218,6 @@ namespace Dierentuin.Controllers.MVC
             {
                 messages.Add($"Not enough space in '{enclosure.Name}'. Needed: {totalNeeded}");
             }
-
             foreach (var animal in enclosure.Animals)
             {
                 if (enclosure.SecurityLevel < animal.SecurityRequirement)

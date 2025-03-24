@@ -19,7 +19,10 @@ namespace Dierentuin.Controllers.MVC
         [HttpGet]
         public async Task<IActionResult> Index(string? search)
         {
-            var query = _context.Categories.AsQueryable();
+            // Include(c => c.Animals) => laadt ook de dieren van elke Category
+            var query = _context.Categories
+                .Include(c => c.Animals)
+                .AsQueryable();
 
             // Optionele filter
             if (!string.IsNullOrEmpty(search))

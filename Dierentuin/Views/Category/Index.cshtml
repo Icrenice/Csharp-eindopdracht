@@ -28,7 +28,7 @@
     {
         <tr>
             <td>@cat.Name</td>
-            <td>@cat.Animals?.Count ?? 0</td>
+            <td>@(cat.Animals?.Count ?? 0)</td>
             <td>
                 <a asp-action="Details" asp-route-id="@cat.Id">Details</a> |
                 <a asp-action="Edit" asp-route-id="@cat.Id">Edit</a> |
