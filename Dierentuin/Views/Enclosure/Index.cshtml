@@ -1,0 +1,46 @@
+@model IEnumerable<Dierentuin.Models.Enclosure>
+
+@{
+    ViewData["Title"] = "Enclosures";
+}
+
+<h1>Enclosures</h1>
+
+<form method="get">
+    <input type="text" name="search" placeholder="Search enclosures..." value="@Context.Request.Query["search"]" />
+    <input type="submit" value="Filter" />
+</form>
+
+<p>
+    <a asp-action="Create">Create New Enclosure</a>
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Animals Count</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var enc in Model)
+    {
+        <tr>
+            <td>@enc.Name</td>
+            <td>@enc.Animals?.Count</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@enc.Id">Details</a> |
+                <a asp-action="Edit" asp-route-id="@enc.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@enc.Id">Delete</a>
+                <br />
+                <!-- Acties -->
+                <a asp-action="Sunrise" asp-route-id="@enc.Id">Sunrise</a> |
+                <a asp-action="Sunset" asp-route-id="@enc.Id">Sunset</a> |
+                <a asp-action="FeedingTime" asp-route-id="@enc.Id">Feeding</a> |
+                <a asp-action="CheckConstraints" asp-route-id="@enc.Id">Check</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

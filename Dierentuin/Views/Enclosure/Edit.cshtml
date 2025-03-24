@@ -1,0 +1,32 @@
+@model Dierentuin.Models.Enclosure
+
+@{
+    ViewData["Title"] = "Edit Enclosure";
+}
+
+<h1>Edit Enclosure</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Climate"></label>
+        <select asp-for="Climate">
+            <option value="Tropical">Tropical</option>
+            <option value="Temperate">Temperate</option>
+            <option value="Arctic">Arctic</option>
+        </select>
+    </div>
+
+    <!-- idem voor HabitatType, SecurityLevel, Size -->
+
+    <input type="submit" value="Save" />
+</form>
+
+<p>
+    <a asp-action="Index">Back to List</a>
+</p>

@@ -1,0 +1,30 @@
+@model Dierentuin.Models.Enclosure
+
+@{
+    ViewData["Title"] = "Enclosure Details";
+}
+
+<h1>@Model.Name</h1>
+<p>Climate: @Model.Climate</p>
+<p>HabitatType: @Model.HabitatType</p>
+<p>SecurityLevel: @Model.SecurityLevel</p>
+<p>Size: @Model.Size</p>
+
+@if (Model.Animals != null && Model.Animals.Any())
+{
+    <h4>Animals in this Enclosure:</h4>
+    <ul>
+        @foreach (var animal in Model.Animals)
+        {
+            <li>@animal.Name (@animal.Species) - Awake: @animal.IsAwake</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No animals found in this enclosure.</p>
+}
+
+<p>
+    <a asp-action="Index">Back to List</a>
+</p>

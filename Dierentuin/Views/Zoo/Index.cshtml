@@ -1,0 +1,50 @@
+@model Dierentuin.Models.Zoo
+
+@{
+    ViewData["Title"] = "Zoo";
+}
+
+<h1>@Model.Name</h1>
+
+<!-- Actie-knoppen -->
+<p>
+    <a asp-action="Sunrise">Sunrise</a> |
+    <a asp-action="Sunset">Sunset</a> |
+    <a asp-action="FeedingTime">FeedingTime</a> |
+    <a asp-action="CheckConstraints">CheckConstraints</a> |
+    <a asp-action="AutoAssign" asp-route-removeExisting="false">AutoAssign (Partial)</a> |
+    <a asp-action="AutoAssign" asp-route-removeExisting="true">AutoAssign (Remove Existing)</a>
+</p>
+
+@if (TempData["ConstraintsResult"] != null)
+{
+    <div style="color: red">
+        @Html.Raw(TempData["ConstraintsResult"])
+    </div>
+}
+
+<h2>Enclosures in this Zoo</h2>
+@if (Model.Enclosures != null && Model.Enclosures.Any())
+{
+    <ul>
+        @foreach (var enclosure in Model.Enclosures)
+        {
+            <li>
+                <b>@enclosure.Name</b> 
+                (Size: @enclosure.Size, Security: @enclosure.SecurityLevel, 
+                Climate: @enclosure.Climate, HabitatType: @enclosure.HabitatType)
+
+                <ul>
+                    @foreach (var animal in enclosure.Animals)
+                    {
+                        <li>@animal.Name (@animal.Species) - Awake: @animal.IsAwake</li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No enclosures found.</p>
+}

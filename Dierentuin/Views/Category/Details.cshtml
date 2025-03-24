@@ -1,0 +1,27 @@
+@model Dierentuin.Models.Category
+
+@{
+    ViewData["Title"] = "Category Details";
+}
+
+<h1>Category Details</h1>
+
+<div>
+    <h4>@Model.Name</h4>
+    <p>Number of animals: @Model.Animals?.Count</p>
+</div>
+
+@if (Model.Animals != null && Model.Animals.Any())
+{
+    <h4>Animals in this category:</h4>
+    <ul>
+        @foreach (var a in Model.Animals)
+        {
+            <li>@a.Name (@a.Species)</li>
+        }
+    </ul>
+}
+
+<p>
+    <a asp-action="Index">Back to List</a>
+</p>

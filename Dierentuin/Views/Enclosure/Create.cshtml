@@ -1,0 +1,30 @@
+@model Dierentuin.Models.Enclosure
+
+@{
+    ViewData["Title"] = "Create Enclosure";
+}
+
+<h1>Create New Enclosure</h1>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Climate"></label>
+        <select asp-for="Climate">
+            <option value="Tropical">Tropical</option>
+            <option value="Temperate">Temperate</option>
+            <option value="Arctic">Arctic</option>
+        </select>
+    </div>
+
+    <!-- Zelfde idee voor HabitatType, SecurityLevel, Size, etc. -->
+
+    <input type="submit" value="Create" />
+</form>
+
+<p>
+    <a asp-action="Index">Back to List</a>
+</p>
