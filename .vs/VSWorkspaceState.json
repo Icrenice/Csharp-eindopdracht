@@ -7,9 +7,8 @@
     "\\Dierentuin\\Controllers\\MVC",
     "\\Dierentuin\\Views",
     "\\Dierentuin\\Views\\Animal",
-    "\\Dierentuin\\Views\\Category",
-    "\\Dierentuin\\Views\\Enclosure"
+    "\\Dierentuin\\Views\\Shared"
   ],
-  "SelectedNode": "\\Dierentuin\\Dierentuin.csproj",
+  "SelectedNode": "\\Dierentuin\\Views\\Animal\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

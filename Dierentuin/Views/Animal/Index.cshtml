@@ -1,68 +1,116 @@
-@using Azure.Core
 @model IEnumerable<Dierentuin.Models.Animal>
 
     @{
     ViewData["Title"] = "Animals";
     }
+    <!-- Aangepaste styling -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
 
-    <h1>Animals</h1>
+        .custom-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
 
-    <!-- Search/Filter -->
-    <form method="get">
-        <input type="text" name="search" placeholder="Search animals..." value="@Context.Request.Query["search"]" />    <input type="submit" value="Filter" />
-    </form>
+        .custom-table {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-    <p>
-        <a asp-action="Create">Create New Animal</a>
-    </p>
+            .custom-table thead {
+                background-color: #343a40;
+                color: #ffffff;
+            }
 
-    <!-- Eventuele resultaten van acties -->
-    @if (TempData["AnimalActionResult"] != null)
-{
-    <div style="color: green">
-        @Html.Raw(TempData["AnimalActionResult"])
+            .custom-table th,
+            .custom-table td {
+                padding: 12px;
+            }
+
+        .action-btn {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+
+    <div class="container mt-4">
+        <div class="custom-header">
+            <h1 class="mb-0">Animals</h1>
+        </div>
+
+        <!-- Zoekformulier -->
+        <div class="mb-4">
+            <form method="get" class="row g-2">
+                <div class="col-auto">
+                    <input type="text" name="search" class="form-control" placeholder="Search animals..."
+                           value="@ViewContext.HttpContext.Request.Query["search"]" />
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="mb-4">
+            <a asp-action="Create" class="btn btn-success">Create New Animal</a>
+        </div>
+
+        <!-- Actiemeldingen -->
+        @if (TempData["AnimalActionResult"] != null)
+    {
+        <div class="alert alert-success">
+            @Html.Raw(TempData["AnimalActionResult"])
+        </div>
+    }
+        @if (TempData["AnimalConstraints"] != null)
+    {
+        <div class="alert alert-danger">
+            @Html.Raw(TempData["AnimalConstraints"])
+        </div>
+    }
+
+        <!-- Data Tabel -->
+        <table class="table custom-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Species</th>
+                    <th>Category</th>
+                    <th>Enclosure</th>
+                    <th>Is Awake</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var animal in Model)
+            {
+                <tr>
+                    <td>@animal.Name</td>
+                    <td>@animal.Species</td>
+                    <td>@animal.Category?.Name</td>
+                    <td>@animal.Enclosure?.Name</td>
+                    <td>@(animal.IsAwake ? "Yes" : "No")</td>
+                    <td>
+                        <div>
+                            <a asp-action="Details" asp-route-id="@animal.Id" class="btn btn-outline-secondary btn-sm action-btn">Details</a>
+                            <a asp-action="Edit" asp-route-id="@animal.Id" class="btn btn-outline-primary btn-sm action-btn">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@animal.Id" class="btn btn-outline-danger btn-sm action-btn">Delete</a>
+                        </div>
+                        <div class="mt-2">
+                            <a asp-action="Sunrise" asp-route-id="@animal.Id" class="btn btn-light btn-sm action-btn">Sunrise</a>
+                            <a asp-action="Sunset" asp-route-id="@animal.Id" class="btn btn-light btn-sm action-btn">Sunset</a>
+                            <a asp-action="FeedingTime" asp-route-id="@animal.Id" class="btn btn-light btn-sm action-btn">Feeding</a>
+                            <a asp-action="CheckConstraints" asp-route-id="@animal.Id" class="btn btn-light btn-sm action-btn">Check</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
     </div>
-}
-    @if (TempData["AnimalConstraints"] != null)
-{
-    <div style="color: red">
-        @Html.Raw(TempData["AnimalConstraints"])
-    </div>
-}
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Species</th>
-                <th>Category</th>
-                <th>Enclosure</th>
-                <th>IsAwake</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var animal in Model)
-{
-            <tr>
-                <td>@animal.Name</td>
-                <td>@animal.Species</td>
-                <td>@animal.Category?.Name</td>
-                <td>@animal.Enclosure?.Name</td>
-                <td>@animal.IsAwake</td>
-                <td>
-                    <!-- CRUD -->
-                    <a asp-action="Details" asp-route-id="@animal.Id">Details</a> |
-                    <a asp-action="Edit" asp-route-id="@animal.Id">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@animal.Id">Delete</a>
-                    <br />
-                    <!-- Acties (Sunrise, Sunset, etc.) -->
-                    <a asp-action="Sunrise" asp-route-id="@animal.Id">Sunrise</a> |
-                    <a asp-action="Sunset" asp-route-id="@animal.Id">Sunset</a> |
-                    <a asp-action="FeedingTime" asp-route-id="@animal.Id">Feeding</a> |
-                    <a asp-action="CheckConstraints" asp-route-id="@animal.Id">Check</a>
-                </td>
-            </tr>
-}
-        </tbody>
-    </table>
