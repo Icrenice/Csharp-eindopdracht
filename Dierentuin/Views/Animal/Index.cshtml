@@ -3,114 +3,151 @@
     @{
     ViewData["Title"] = "Animals";
     }
-    <!-- Aangepaste styling -->
+
+    <!-- Eventueel extra CSS -->
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #f1f3f5; /* Zachtgrijze achtergrond */
         }
 
-        .custom-header {
-            background-color: #007bff;
+        .page-header {
+            background: linear-gradient(135deg, #007bff, #6c757d);
             color: #fff;
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 20px;
+            padding: 2rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .custom-table {
-            background-color: #ffffff;
+            .page-header h1 {
+                margin: 0;
+                font-weight: 600;
+            }
+
+        .card-header-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .card-header-actions .btn {
+                margin-left: 8px;
+            }
+
+        /* --- Tabel-styling --- */
+        .table-custom {
+            /* eventueel een rand om de tabel */
             border: 1px solid #dee2e6;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden; /* zorgt dat de kop mooi aansluit op de border-radius */
         }
 
-            .custom-table thead {
-                background-color: #343a40;
-                color: #ffffff;
+            .table-custom thead {
+                background-color: #495057;
+                color: #fff;
             }
 
-            .custom-table th,
-            .custom-table td {
-                padding: 12px;
+            .table-custom tbody tr:nth-of-type(odd) {
+                background-color: #f8f9fa;
             }
 
-        .action-btn {
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
+            .table-custom tbody tr:hover {
+                background-color: #e9ecef;
+            }
+
+            .table-custom th, .table-custom td {
+                padding: 0.75rem 1rem;
+                vertical-align: middle;
+            }
+  .table-responsive{
+      width: 100%;
+  }
+  .table{
+      width: 100%
+  }
+  th{
+      text-align: left;
+  }
     </style>
 
     <div class="container mt-4">
-        <div class="custom-header">
-            <h1 class="mb-0">Animals</h1>
+        <!-- Header / Title -->
+        <div class="page-header">
+            <h1>Animals</h1>
         </div>
 
-        <!-- Zoekformulier -->
-        <div class="mb-4">
-            <form method="get" class="row g-2">
-                <div class="col-auto">
-                    <input type="text" name="search" class="form-control" placeholder="Search animals..."
-                           value="@ViewContext.HttpContext.Request.Query["search"]" />
-                </div>
-                <div class="col-auto">
+        <!-- Zoekformulier en 'Create'-knop in één rij -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 card-header-actions">
+                <form method="get" class="d-flex m-0">
+                    <input type="text"
+                           name="search"
+                           class="form-control me-2"
+                           placeholder="Search animals..."
+                           value="@ViewContext.HttpContext.Request.Query["search"]">
                     <button type="submit" class="btn btn-primary">Filter</button>
-                </div>
-            </form>
-        </div>
+                </form>
+                <a asp-action="Create" class="btn btn-success">
+                    Create New Animal
+                </a>
+            </div>
 
-        <div class="mb-4">
-            <a asp-action="Create" class="btn btn-success">Create New Animal</a>
-        </div>
-
-        <!-- Actiemeldingen -->
-        @if (TempData["AnimalActionResult"] != null)
-    {
-        <div class="alert alert-success">
-            @Html.Raw(TempData["AnimalActionResult"])
-        </div>
-    }
-        @if (TempData["AnimalConstraints"] != null)
-    {
-        <div class="alert alert-danger">
-            @Html.Raw(TempData["AnimalConstraints"])
-        </div>
-    }
-
-        <!-- Data Tabel -->
-        <table class="table custom-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Species</th>
-                    <th>Category</th>
-                    <th>Enclosure</th>
-                    <th>Is Awake</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var animal in Model)
+            <!-- Actie-/foutmeldingen -->
+            <div class="card-body">
+                @if (TempData["AnimalActionResult"] != null)
             {
-                <tr>
-                    <td>@animal.Name</td>
-                    <td>@animal.Species</td>
-                    <td>@animal.Category?.Name</td>
-                    <td>@animal.Enclosure?.Name</td>
-                    <td>@(animal.IsAwake ? "Yes" : "No")</td>
-                    <td>
-                        <div>
-                            <a asp-action="Details" asp-route-id="@animal.Id" class="btn btn-outline-secondary btn-sm action-btn">Details</a>
-                            <a asp-action="Edit" asp-route-id="@animal.Id" class="btn btn-outline-primary btn-sm action-btn">Edit</a>
-                            <a asp-action="Delete" asp-route-id="@animal.Id" class="btn btn-outline-danger btn-sm action-btn">Delete</a>
-                        </div>
-                        <div class="mt-2">
-                            <a asp-action="Sunrise" asp-route-id="@animal.Id" class="btn btn-light btn-sm action-btn">Sunrise</a>
-                            <a asp-action="Sunset" asp-route-id="@animal.Id" class="btn btn-light btn-sm action-btn">Sunset</a>
-                            <a asp-action="FeedingTime" asp-route-id="@animal.Id" class="btn btn-light btn-sm action-btn">Feeding</a>
-                            <a asp-action="CheckConstraints" asp-route-id="@animal.Id" class="btn btn-light btn-sm action-btn">Check</a>
-                        </div>
-                    </td>
-                </tr>
+                <div class="alert alert-success">
+                    @Html.Raw(TempData["AnimalActionResult"])
+                </div>
             }
-            </tbody>
-        </table>
+                @if (TempData["AnimalConstraints"] != null)
+            {
+                <div class="alert alert-danger">
+                    @Html.Raw(TempData["AnimalConstraints"])
+                </div>
+            }
+
+                <!-- Tabel van dieren -->
+                <div class="table-responsive">
+                    <table class="table table-custom">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Species</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Enclosure</th>
+                                <th scope="col">Is Awake</th>
+                                <th scope="col" style="min-width: 230px;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var animal in Model)
+                    {
+                            <tr>
+                                <td>@animal.Name</td>
+                                <td>@animal.Species</td>
+                                <td>@animal.Category?.Name</td>
+                                <td>@animal.Enclosure?.Name</td>
+                                <td>@(animal.IsAwake ? "Yes" : "No")</td>
+                                <td>
+                                    <!-- Vervang btn-group door flexcontainers met gap voor meer ruimte -->
+                                    <div class="d-flex flex-wrap gap-2 mb-2">
+                                        <a asp-action="Details" asp-route-id="@animal.Id" class="btn btn-outline-secondary">Details</a>
+                                        <a asp-action="Edit" asp-route-id="@animal.Id" class="btn btn-outline-primary">Edit</a>
+                                        <a asp-action="Delete" asp-route-id="@animal.Id" class="btn btn-outline-danger">Delete</a>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <a asp-action="Sunrise" asp-route-id="@animal.Id" class="btn btn-light">Sunrise</a>
+                                        <a asp-action="Sunset" asp-route-id="@animal.Id" class="btn btn-light">Sunset</a>
+                                        <a asp-action="FeedingTime" asp-route-id="@animal.Id" class="btn btn-light">Feeding</a>
+                                        <a asp-action="CheckConstraints" asp-route-id="@animal.Id" class="btn btn-light">Check</a>
+                                    </div>
+                                </td>
+                            </tr>
+                    }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>

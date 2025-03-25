@@ -4,47 +4,127 @@
     ViewData["Title"] = "Zoo";
 }
 
-<h1>@Model.Name</h1>
+<!-- Eventueel extra CSS -->
+<style>
+    body {
+        background-color: #f1f3f5; /* Zachtgrijze achtergrond */
+    }
 
-<!-- Actie-knoppen -->
-<p>
-    <a asp-action="Sunrise">Sunrise</a> |
-    <a asp-action="Sunset">Sunset</a> |
-    <a asp-action="FeedingTime">FeedingTime</a> |
-    <a asp-action="CheckConstraints">CheckConstraints</a> |
-    <a asp-action="AutoAssign" asp-route-removeExisting="false">AutoAssign (Partial)</a> |
-    <a asp-action="AutoAssign" asp-route-removeExisting="true">AutoAssign (Remove Existing)</a>
-</p>
+    .page-header {
+        background: linear-gradient(135deg, #007bff, #6c757d);
+        color: #fff;
+        padding: 2rem 1rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
 
-@if (TempData["ConstraintsResult"] != null)
-{
-    <div style="color: red">
-        @Html.Raw(TempData["ConstraintsResult"])
-    </div>
-}
-
-<h2>Enclosures in this Zoo</h2>
-@if (Model.Enclosures != null && Model.Enclosures.Any())
-{
-    <ul>
-        @foreach (var enclosure in Model.Enclosures)
-        {
-            <li>
-                <b>@enclosure.Name</b> 
-                (Size: @enclosure.Size, Security: @enclosure.SecurityLevel, 
-                Climate: @enclosure.Climate, HabitatType: @enclosure.HabitatType)
-
-                <ul>
-                    @foreach (var animal in enclosure.Animals)
-                    {
-                        <li>@animal.Name (@animal.Species) - Awake: @animal.IsAwake</li>
-                    }
-                </ul>
-            </li>
+        .page-header h1 {
+            margin: 0;
+            font-weight: 600;
         }
-    </ul>
-}
-else
-{
-    <p>No enclosures found.</p>
-}
+
+    .card-header-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .card-header-actions .btn {
+            margin-left: 8px;
+        }
+
+    /* --- Lijst-styling --- */
+    .list-group {
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .list-group-item {
+        padding: 1rem;
+        border: none;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+
+        .list-group-item h5 {
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .list-group-item ul {
+            padding-left: 1.5rem;
+        }
+
+            .list-group-item ul li {
+                margin-bottom: 0.5rem;
+            }
+
+                .list-group-item ul li:last-child {
+                    margin-bottom: 0;
+                }
+</style>
+
+<div class="container mt-4">
+    <!-- Header / Title -->
+    <div class="page-header">
+        <h1>@Model.Name</h1>
+    </div>
+
+    <!-- Actie-knoppen -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 card-header-actions">
+            <div>
+                <a asp-action="Sunrise" class="btn btn-light">Sunrise</a>
+                <a asp-action="Sunset" class="btn btn-light">Sunset</a>
+                <a asp-action="FeedingTime" class="btn btn-light">FeedingTime</a>
+                <a asp-action="CheckConstraints" class="btn btn-light">CheckConstraints</a>
+                <a asp-action="AutoAssign" asp-route-removeExisting="false" class="btn btn-light">AutoAssign (Partial)</a>
+                <a asp-action="AutoAssign" asp-route-removeExisting="true" class="btn btn-light">AutoAssign (Remove Existing)</a>
+            </div>
+        </div>
+
+        <!-- Actie-/foutmeldingen -->
+        <div class="card-body">
+            @if (TempData["ConstraintsResult"] != null)
+            {
+            <div class="alert alert-danger">
+                @Html.Raw(TempData["ConstraintsResult"])
+            </div>
+            }
+
+            <!-- Lijst van verblijven en dieren -->
+            <h2>Enclosures in this Zoo</h2>
+            @if (Model.Enclosures != null && Model.Enclosures.Any())
+            {
+            <div class="list-group">
+                @foreach (var enclosure in Model.Enclosures)
+                    {
+                <div class="list-group-item">
+                    <h5>@enclosure.Name</h5>
+                    <p>
+                        Size: @enclosure.Size, Security: @enclosure.SecurityLevel,
+                        Climate: @enclosure.Climate, HabitatType: @enclosure.HabitatType
+                    </p>
+                    <ul>
+                        @foreach (var animal in enclosure.Animals)
+                                {
+                        <li>@animal.Name (@animal.Species) - Awake: @animal.IsAwake</li>
+                                }
+                    </ul>
+                </div>
+                    }
+            </div>
+            }
+            else
+            {
+            <p>No enclosures found.</p>
+            }
+        </div>
+    </div>
+</div>
+
