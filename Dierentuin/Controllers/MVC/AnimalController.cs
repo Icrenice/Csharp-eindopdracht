@@ -56,6 +56,8 @@ namespace Dierentuin.Controllers.MVC
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.Categories = _context.Categories.ToList();
+            ViewBag.Enclosures = _context.Enclosures.ToList();
             return View();
         }
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ytjQL1bVq1o=",
+  "dgSpecHash": "bujJMHou6MY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ericm\\Source\\Repos\\Icrenice\\Csharp-eindopdracht\\dierentuin\\Dierentuin.csproj",
+  "projectFilePath": "C:\\Users\\ericm\\Source\\Repos\\Icrenice\\Csharp-eindopdracht\\Dierentuin\\Dierentuin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ericm\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\ericm\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

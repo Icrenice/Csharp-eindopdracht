@@ -4,16 +4,91 @@
     ViewData["Title"] = "Create Category";
 }
 
-<h1>Create New Category</h1>
+<!-- Eventueel extra CSS -->
+<style>
+    body {
+        background-color: #f1f3f5; /* Zachtgrijze achtergrond */
+    }
 
-<form asp-action="Create" method="post">
-    <div>
-        <label asp-for="Name"></label>
-        <input asp-for="Name" />
+    .page-header {
+        background: linear-gradient(135deg, #007bff, #6c757d);
+        color: #fff;
+        padding: 2rem 1rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .page-header h1 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+    .form-container {
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .form-container label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+            .form-container input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+        .form-container a {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+            .form-container a:hover {
+                color: #0056b3;
+            }
+</style>
+
+<div class="container mt-4">
+    <!-- Header / Title -->
+    <div class="page-header">
+        <h1>Create New Category</h1>
     </div>
-    <input type="submit" value="Create" />
-</form>
 
-<p>
-    <a asp-action="Index">Back to List</a>
-</p>
+    <!-- Formulier -->
+    <div class="form-container">
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </form>
+
+        <p>
+            <a asp-action="Index">Back to List</a>
+        </p>
+    </div>
+</div>

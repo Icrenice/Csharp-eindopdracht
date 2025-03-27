@@ -4,24 +4,91 @@
     ViewData["Title"] = "Category Details";
 }
 
-<h1>Category Details</h1>
+<!-- Eventueel extra CSS -->
+<style>
+    body {
+        background-color: #f1f3f5; /* Zachtgrijze achtergrond */
+    }
 
-<div>
-    <h4>@Model.Name</h4>
-    <p>Number of animals: @Model.Animals?.Count</p>
-</div>
+    .page-header {
+        background: linear-gradient(135deg, #007bff, #6c757d);
+        color: #fff;
+        padding: 2rem 1rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
 
-@if (Model.Animals != null && Model.Animals.Any())
-{
-    <h4>Animals in this category:</h4>
-    <ul>
-        @foreach (var a in Model.Animals)
-        {
-            <li>@a.Name (@a.Species)</li>
+        .page-header h1 {
+            margin: 0;
+            font-weight: 600;
         }
-    </ul>
-}
 
-<p>
-    <a asp-action="Index">Back to List</a>
-</p>
+    .details-container {
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .details-container h4 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .details-container p {
+            margin-bottom: 1.5rem;
+        }
+
+        .details-container ul {
+            padding-left: 1.5rem;
+        }
+
+            .details-container ul li {
+                margin-bottom: 0.5rem;
+            }
+
+                .details-container ul li:last-child {
+                    margin-bottom: 0;
+                }
+
+        .details-container a {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+            .details-container a:hover {
+                color: #0056b3;
+            }
+</style>
+
+<div class="container mt-4">
+    <!-- Header / Title -->
+    <div class="page-header">
+        <h1>Category Details</h1>
+    </div>
+
+    <!-- Details -->
+    <div class="details-container">
+        <h4>@Model.Name</h4>
+        <p>Number of animals: @Model.Animals?.Count</p>
+
+        @if (Model.Animals != null && Model.Animals.Any())
+        {
+        <h4>Animals in this category:</h4>
+        <ul>
+            @foreach (var a in Model.Animals)
+                {
+            <li>@a.Name (@a.Species)</li>
+                }
+        </ul>
+        }
+
+        <p>
+            <a asp-action="Index">Back to List</a>
+        </p>
+    </div>
+</div>

@@ -4,20 +4,80 @@
     ViewData["Title"] = "Animal Details";
 }
 
-<h1>Animal Details</h1>
+<!-- Eventueel extra CSS -->
+<style>
+    body {
+        background-color: #f1f3f5; /* Zachtgrijze achtergrond */
+    }
 
-<div>
-    <h3>@Model.Name (@Model.Species)</h3>
-    <p>Category: @Model.Category?.Name</p>
-    <p>Enclosure: @Model.Enclosure?.Name</p>
-    <p>IsAwake: @Model.IsAwake</p>
-    <p>Size: @Model.Size</p>
-    <p>DietaryClass: @Model.DietaryClass</p>
-    <p>ActivityPattern: @Model.ActivityPattern</p>
-    <p>SecurityRequirement: @Model.SecurityRequirement</p>
-    <p>SpaceRequirement: @Model.SpaceRequirement</p>
+    .page-header {
+        background: linear-gradient(135deg, #007bff, #6c757d);
+        color: #fff;
+        padding: 2rem 1rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .page-header h1 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+    .details-container {
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .details-container h3 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .details-container p {
+            margin-bottom: 1rem;
+        }
+
+        .details-container a {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+            .details-container a:hover {
+                color: #0056b3;
+            }
+</style>
+
+<div class="container mt-4">
+    <!-- Header / Title -->
+    <div class="page-header">
+        <h1>Animal Details</h1>
+    </div>
+
+    <!-- Details -->
+    <div class="details-container">
+        <h3>@Model.Name (@Model.Species)</h3>
+        <p>Category: @Model.Category?.Name</p>
+        <p>Enclosure: @Model.Enclosure?.Name</p>
+        <p>IsAwake: @Model.IsAwake</p>
+        <p>Size: @Model.Size</p>
+        <p>DietaryClass: @Model.DietaryClass</p>
+        <p>ActivityPattern: @Model.ActivityPattern</p>
+        <p>SecurityRequirement: @Model.SecurityRequirement</p>
+        <p>SpaceRequirement: @Model.SpaceRequirement</p>
+
+        <p>
+            <a asp-action="Index">Back to List</a>
+        </p>
+    </div>
 </div>
 
-<p>
-    <a asp-action="Index">Back to List</a>
-</p>
+
+
+
+
