@@ -3,14 +3,14 @@
     "",
     "\\Dierentuin",
     "\\Dierentuin\\Controllers",
-    "\\Dierentuin\\Controllers\\MVC",
+    "\\Dierentuin\\Controllers\\API",
     "\\Dierentuin\\Views",
-    "\\Dierentuin\\Views\\Enclosure",
-    "\\Dierentuin\\Views\\Home",
+    "\\Dierentuin\\Views\\Animal",
     "\\Dierentuin\\Views\\Shared",
     "\\Dierentuin\\Views\\Zoo",
-    "\\Dierentuin_Test"
+    "\\Dierentuin_Test",
+    "\\Dierentuin_Test\\Dierentuin.Tests"
   ],
-  "SelectedNode": "\\Dierentuin\\Views\\Home\\Privacy.cshtml",
+  "SelectedNode": "\\Dierentuin_Test\\Dierentuin.Tests\\AnimalControllerTests.cs",
   "PreviewInSolutionExplorer": false
 }
